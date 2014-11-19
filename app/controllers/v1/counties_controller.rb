@@ -10,11 +10,11 @@ class V1::CountiesController < ApplicationController
   end
 
   def create
-    respond_with County.create(params[:countie])
+    respond_with County.create(params[:county])
   end
 
   def update
-    respond_with County.update(params[:id], params[:product])
+    respond_with County.update(params[:id], params[:county])
   end
 
   def destroy
