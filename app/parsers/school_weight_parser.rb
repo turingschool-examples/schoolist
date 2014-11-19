@@ -14,6 +14,7 @@ class SchoolWeightParser
 
   def parse_csv
     puts "Processing..."
+    
     contents.each do |row|
       county = County.find_or_create_by(name: row[:county].capitalize)
 
