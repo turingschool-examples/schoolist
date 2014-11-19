@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  uid: MyString
+  overweight_percentage: 1
+  obese_percentage: 1
+  school_id: 
+
+two:
+  uid: MyString
+  overweight_percentage: 1
+  obese_percentage: 1
+  school_id: 
