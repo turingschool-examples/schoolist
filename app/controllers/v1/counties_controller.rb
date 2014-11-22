@@ -10,14 +10,20 @@ class V1::CountiesController < ApplicationController
   end
 
   def create
-    respond_with County.create(params[:county])
+    respond_with :v1, County.create(county_params)
   end
 
   def update
-    respond_with County.update(params[:id], params[:county])
+    respond_with :v1, County.update(params[:id], county_params)
   end
 
   def destroy
     respond_with County.destroy(params[:id])
+  end
+
+  private
+
+  def county_params
+    params.require(:county).permit(:name)
   end
 end
