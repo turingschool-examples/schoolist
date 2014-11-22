@@ -1,20 +1,19 @@
-require "csv"
+require 'csv'
 
 class SchoolWeightParser
   attr_reader :path
 
   def initialize
     @path = "public/Student_Weight_Status_Category_Reporting_Results__Beginning_2010.csv"
-    parse_csv
   end
 
   def contents
     @contents ||= CSV.open(path, headers: true, header_converters: :symbol)
   end
 
-  def parse_csv
+  def start
     puts "Processing..."
-    
+
     contents.each do |row|
       county = County.find_or_create_by(name: row[:county].capitalize)
 
@@ -24,7 +23,7 @@ class SchoolWeightParser
         school.obese_percentage      = BigDecimal.new(row[:pct_obese].to_s)
       end
 
-      puts "County: #{county.name}: School #{school.uid} added" if school.new_record?
+      puts "County: #{county.name}: School #{school.uid} added"
     end
   end
 end

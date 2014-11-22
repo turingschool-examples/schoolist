@@ -24,8 +24,8 @@ ActiveRecord::Schema.define(version: 20141119133350) do
 
   create_table "schools", force: true do |t|
     t.string   "uid"
-    t.integer  "overweight_percentage"
-    t.integer  "obese_percentage"
+    t.decimal  "overweight_percentage"
+    t.decimal  "obese_percentage"
     t.integer  "county_id"
     t.datetime "created_at"
     t.datetime "updated_at"
